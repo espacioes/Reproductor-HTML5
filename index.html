@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Reproductor HTML5</title>
+	<link rel="icon" href="img/favicon.png">
+	<link rel="stylesheet" href="css/main.css">
+	<meta charset="utf-8">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+	<div id="input_container">
+		<input type="text" id="path" placeholder=" Añadir URL del video ..."/>
+		<input type="submit" onclick="play();" value="Recargar"/>
+	</div>
+	<div id="video_container">
+		<video controls preload poster=img/poster.jpg>
+			<p>Su navegador no soporta este video.</p>
+		</video>
+	</div>
+<script type="text/javascript">
+	window.onload=function(){
+	}
+		function play(){
+		var url = document.getElementById("path").value;
+		document.getElementById('video_container').innerHTML='<video controls preload poster=img/poster.jpg id="movie" src="'+url+'"></video>';
+		var player =document.getElementById('movie');
+		player.load();
+		}
+	</script>
+</body>
+</html>
+<!-- Atributos -->
+<!-- preload: para almacenar en el búfer archivos de gran tamaño. Tiene 3 valores -->
+<!-- preload="none": no almacena el archivo en búfer -->
+<!-- preload="metadata": almacena solo los metadatos del archivo, dimensiones, primer fotograma, lista de seguimiento, duración, etc -->
+<!-- preload="auto": almacena en búfer el video completo -->
+<!-- preload: igual que "auto" -->
+<!-- autoplay: hace que comience a reproducirse de inmediato  -->
+<!-- loop: hace que comience a reproducirse nuevamente cada vez que finaliza -->
+<!-- poster: mostrará una imagen antes de reproducir el video -->
